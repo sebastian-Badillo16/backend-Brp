@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import dbConection from '../database/config.js';
 import usuario from '../routes/usuario.js';
-// import registro from '../routes/registro.js'
 import dependencias from '../routes/dependencias.js'
 import visitas from '../routes/visitas.js'
 import fileUpload from 'express-fileupload';
@@ -24,7 +23,6 @@ class Server{
     routes(){
       
         this.app.use('/api/usuario',  usuario);
-        // this.app.use('/api/registro', registro);
         this.app.use('/api/visitas', visitas);
         this.app.use('/api/dependencias', dependencias);    
 
@@ -53,7 +51,7 @@ class Server{
     }
 }
 
-export default Server;
+export default {Server};
 
 
 

@@ -7,7 +7,7 @@ const generarJWT = (uid = '') => {
 // console.log(uid);
 
         const payload = { uid }
-        jwt.sign(payload, process.env.SecretPrivateKey, {
+        jwt.sign(payload, process.env.SECRETPRIVATEKEY, {
             expiresIn: '2h'
         },(err,token) => {
 
@@ -33,7 +33,7 @@ const validarJWT = async (req, res, next) => {
     }
 
     try {
-        const { uid } = jwt.verify(token, process.env.SecretPrivateKey);
+        const { uid } = jwt.verify(token, process.env.SECRETPRIVATEKEY);
         const usuario = await Usuario.findById(uid)
         if (!usuario) {
             return res.status(401).json({
